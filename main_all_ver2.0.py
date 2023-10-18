@@ -25,6 +25,7 @@ def get_detail(csv_path):
         for temp in content.split(","):
             if("周数" in temp):
                 res.append(temp)
+        print("课程明细总数",len(res))
         return res
 
 #对于单个课程明细（一个String），返回正则表达式匹配到的文本块，类似于“周数：A-B”，也就是提取课程周次，EG：['9-10', '11']
@@ -42,6 +43,7 @@ def get_column(csv_path,n):#csv_path=example.csv
             #print(temp,len(temp))
             if len(temp)>=3 and len(temp)<=5:#加一个判断，剔除无效数据
                 templist.append(temp) # 提取第n列数据read_column(1)
+        print("节次范围总数",len(templist))
         return templist
 
 #把类似于"A-B"的pair转为[A,B]的list，如果只是单个数字，则返回只有单个数字的list
